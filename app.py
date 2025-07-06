@@ -124,7 +124,7 @@ st.subheader("City Distribution")
 city_chart = df["City"].value_counts().reset_index()
 city_chart.columns = ["City", "Comments"]
 st.bar_chart(city_chart.set_index("City"))
-        st.stop()
+st.stop()
 
     # --- Simulated data. Replace with real Facebook fetch utils.fb_fetch.fetch_all_comments
     comments = ["Vote PUK", "Need change in Erbil", "KDP is strong", "PUK forever"]
