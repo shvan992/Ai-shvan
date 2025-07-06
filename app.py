@@ -75,7 +75,7 @@ def login_page():
 
 if not st.session_state.logged:
     login_page()
-    st.stop()
+st.stop()
 
 # ----------------- Header -----------------
 try:
