@@ -130,9 +130,9 @@ st.stop()
 comments = ["Vote PUK", "Need change in Erbil", "KDP is strong", "PUK forever"]
 cities = ["Erbil", "Sulaimani", "Erbil", "Kirkuk"]
 
-    df = pd.DataFrame({"Comment": comments, "City": cities})
-    st.success(f"Fetched {len(df)} comments.")
-    st.dataframe(df)
+df = pd.DataFrame({"Comment": comments, "City": cities})
+st.success(f"Fetched {len(df)} comments.")
+st.dataframe(df)
 
     st.subheader("City Distribution")
     city_chart = df["City"].value_counts().reset_index()
