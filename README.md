@@ -1,2 +1,2 @@
 # PUK Election AI Dashboard
-Final fixed version.
+This is the functional version with login, Facebook comment support, and CSV export.
