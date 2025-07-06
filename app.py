@@ -93,16 +93,16 @@ if st.button(L["logout"]):
 # ----------------- Facebook Post Analyzer -----------------
 st.header(L["analyze"])
 link = st.text_input(L["post_link"])
-
 if st.button(L["fetch"]):
     if not link:
-
-post_id = extract_post_id(link)
-token = st.secrets["FB_ACCESS_TOKEN"]
-st.info("Fetching comments from Facebook...")
-raw_comments = fetch_comments(post_id, token)
-if not raw_comments:
-    st.error("No comments found or token expired.")
+        st.warning("Please enter a valid Facebook post link.")
+    else:
+        post_id = extract_post_id(link)
+        token = st.secrets["FB_ACCESS_TOKEN"]
+        st.info("Fetching comments from Facebook...")
+        raw_comments = fetch_comments(post_id, token)
+        if not raw_comments:
+            st.error("No comments found or token expired.")
     st.stop()
 
 # Simple city match in comment text
