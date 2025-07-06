@@ -10,45 +10,45 @@ from PIL import Image
 
 # ----------------- Language Packs -----------------
 LANG = {
-    "English": {
-        "login": "Login",
-        "username": "Username",
-        "password": "Password",
-        "login_btn": "Log In",
-        "welcome": "Welcome,",
-        "date": "Date",
-        "analyze": "Analyze Facebook Post",
-        "post_link": "Paste Facebook Post URL",
-        "fetch": "Fetch Comments",
-        "dashboard": "Election Dashboard",
-        "logout": "Logout"
-    },
-    "کوردی": {
-        "login": "چوونەژوورەوە",
-        "username": "ناوی بەکارهێنەر",
-        "password": "وشەی نهێنی",
-        "login_btn": "چوونەژوورەوە",
-        "welcome": "بەخێربێیت،",
-        "date": "ڕێکەوت",
-        "analyze": "لیلای پەیامی فەیسبووک",
-        "post_link": "بەستەری پەیام بنووسە",
-        "fetch": "وەرگرتنی لێدوانەکان",
-        "dashboard": "داشبۆردی هەڵبژاردن",
-        "logout": "چوونەدەرەوە"
-    },
-    "العربية": {
-        "login": "تسجيل الدخول",
-        "username": "اسم المستخدم",
-        "password": "كلمة المرور",
-        "login_btn": "دخول",
-        "welcome": "مرحباً،",
-        "date": "التاريخ",
-        "analyze": "تحليل منشور فيسبوك",
-        "post_link": "الصق رابط المنشور",
-        "fetch": "جلب التعليقات",
-        "dashboard": "لوحة الانتخابات",
-        "logout": "خروج"
-    }
+"English": {
+"login": "Login",
+"username": "Username",
+"password": "Password",
+"login_btn": "Log In",
+"welcome": "Welcome,",
+"date": "Date",
+"analyze": "Analyze Facebook Post",
+"post_link": "Paste Facebook Post URL",
+"fetch": "Fetch Comments",
+"dashboard": "Election Dashboard",
+"logout": "Logout"
+},
+"کوردی": {
+"login": "چوونەژوورەوە",
+"username": "ناوی بەکارهێنەر",
+"password": "وشەی نهێنی",
+"login_btn": "چوونەژوورەوە",
+"welcome": "بەخێربێیت،",
+"date": "ڕێکەوت",
+"analyze": "لیلای پەیامی فەیسبووک",
+"post_link": "بەستەری پەیام بنووسە",
+"fetch": "وەرگرتنی لێدوانەکان",
+"dashboard": "داشبۆردی هەڵبژاردن",
+"logout": "چوونەدەرەوە"
+},
+"العربية": {
+"login": "تسجيل الدخول",
+"username": "اسم المستخدم",
+"password": "كلمة المرور",
+"login_btn": "دخول",
+"welcome": "مرحباً،",
+"date": "التاريخ",
+"analyze": "تحليل منشور فيسبوك",
+"post_link": "الصق رابط المنشور",
+"fetch": "جلب التعليقات",
+"dashboard": "لوحة الانتخابات",
+"logout": "خروج"
+}
 }
 
 # ----------------- Session -----------------
@@ -126,7 +126,7 @@ city_chart.columns = ["City", "Comments"]
 st.bar_chart(city_chart.set_index("City"))
 st.stop()
 
-    # --- Simulated data. Replace with real Facebook fetch utils.fb_fetch.fetch_all_comments
+# --- Simulated data. Replace with real Facebook fetch utils.fb_fetch.fetch_all_comments
 comments = ["Vote PUK", "Need change in Erbil", "KDP is strong", "PUK forever"]
 cities = ["Erbil", "Sulaimani", "Erbil", "Kirkuk"]
 
