@@ -112,7 +112,7 @@ for comment in raw_comments:
     city_found = next((c for c in city_keywords if c.lower() in comment.lower()), "Unknown")
     cities.append(city_found)
 
-    df = pd.DataFrame({"Comment": raw_comments, "City": cities})
+df = pd.DataFrame({"Comment": raw_comments, "City": cities})
     df["Sentiment"] = df["Comment"].apply(get_sentiment)
     df["Party"] = df["Comment"].apply(detect_party)
 st.success(f"Fetched {len(df)} comments.")
@@ -134,15 +134,15 @@ df = pd.DataFrame({"Comment": comments, "City": cities})
 st.success(f"Fetched {len(df)} comments.")
 st.dataframe(df)
 
-    st.subheader("City Distribution")
-    city_chart = df["City"].value_counts().reset_index()
-    city_chart.columns = ["City", "Comments"]
-    st.bar_chart(city_chart.set_index("City"))
+st.subheader("City Distribution")
+city_chart = df["City"].value_counts().reset_index()
+city_chart.columns = ["City", "Comments"]
+st.bar_chart(city_chart.set_index("City"))
 
-    st.subheader("Sentiment Distribution")
-    sentiment_counts = df["Sentiment"].value_counts()
-    st.bar_chart(sentiment_counts)
+st.subheader("Sentiment Distribution")
+sentiment_counts = df["Sentiment"].value_counts()
+st.bar_chart(sentiment_counts)
 
-    st.subheader("Party Mentions")
+st.subheader("Party Mentions")
     party_counts = df["Party"].value_counts()
-    st.bar_chart(party_counts)
+st.bar_chart(party_counts)
