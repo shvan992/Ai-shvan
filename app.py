@@ -114,7 +114,7 @@ for comment in raw_comments:
 
     df = pd.DataFrame({"Comment": raw_comments, "City": cities})
 df["Sentiment"] = df["Comment"].apply(get_sentiment)
-    df["Party"] = df["Comment"].apply(detect_party)
+df["Party"] = df["Comment"].apply(detect_party)
 st.success(f"Fetched {len(df)} comments.")
 st.dataframe(df)
 
