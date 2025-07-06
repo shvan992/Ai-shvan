@@ -5,7 +5,8 @@ import pandas as pd
 
 from utils.fb_utils import extract_post_id, fetch_comments
 
-from utils.ai_utils import get_sentiment, detect_partyfrom PIL import Image
+from utils.ai_utils import get_sentiment, detect_party
+from PIL import Image
 
 # ----------------- Language Packs -----------------
 LANG = {
