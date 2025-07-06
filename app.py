@@ -134,15 +134,15 @@ df = pd.DataFrame({"Comment": comments, "City": cities})
 st.success(f"Fetched {len(df)} comments.")
 st.dataframe(df)
 
-st.subheader("City Distribution")
-city_chart = df["City"].value_counts().reset_index()
-city_chart.columns = ["City", "Comments"]
-st.bar_chart(city_chart.set_index("City"))
+    st.subheader("City Distribution")
+    city_chart = df["City"].value_counts().reset_index()
+    city_chart.columns = ["City", "Comments"]
+    st.bar_chart(city_chart.set_index("City"))
 
-st.subheader("Sentiment Distribution")
-sentiment_counts = df["Sentiment"].value_counts()
-st.bar_chart(sentiment_counts)
+    st.subheader("Sentiment Distribution")
+    sentiment_counts = df["Sentiment"].value_counts()
+    st.bar_chart(sentiment_counts)
 
-st.subheader("Party Mentions")
+    st.subheader("Party Mentions")
     party_counts = df["Party"].value_counts()
-st.bar_chart(party_counts)
+    st.bar_chart(party_counts)
