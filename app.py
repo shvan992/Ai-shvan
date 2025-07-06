@@ -128,7 +128,7 @@ st.stop()
 
     # --- Simulated data. Replace with real Facebook fetch utils.fb_fetch.fetch_all_comments
 comments = ["Vote PUK", "Need change in Erbil", "KDP is strong", "PUK forever"]
-    cities = ["Erbil", "Sulaimani", "Erbil", "Kirkuk"]
+cities = ["Erbil", "Sulaimani", "Erbil", "Kirkuk"]
 
     df = pd.DataFrame({"Comment": comments, "City": cities})
     st.success(f"Fetched {len(df)} comments.")
