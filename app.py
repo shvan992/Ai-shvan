@@ -112,8 +112,8 @@ for comment in raw_comments:
     city_found = next((c for c in city_keywords if c.lower() in comment.lower()), "Unknown")
     cities.append(city_found)
 
-df = pd.DataFrame({"Comment": raw_comments, "City": cities})
-    df["Sentiment"] = df["Comment"].apply(get_sentiment)
+    df = pd.DataFrame({"Comment": raw_comments, "City": cities})
+df["Sentiment"] = df["Comment"].apply(get_sentiment)
     df["Party"] = df["Comment"].apply(detect_party)
 st.success(f"Fetched {len(df)} comments.")
 st.dataframe(df)
