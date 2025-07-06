@@ -1,0 +1,8 @@
+streamlit
+Pillow
+requests
+pandas
+vaderSentiment
+beautifulsoup4
+langdetect
+plotly
