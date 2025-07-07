@@ -2,17 +2,34 @@
 import streamlit as st
 import requests
 import pandas as pd
+from urllib.parse import urlparse, parse_qs
 
 access_token = "EAAQuTsUxpHYBPEu0IRwY8I8zyTZCltrEibmGWqpddYoGMl0sRpJrtn6EHtdTsxo9MStz5cfDPGcE5DZAoP56HkAcQgbqL36wWnpZC58VYmeCBcNNqoot5OCUX2TaprWTZBod6bPyTf3O2giU1zK3bLkburiIgkZCYwE9VGcA2JSLviZCDTWIbIrGUYfcdoePxxEE5y9Fryb6D4CXZAmcN4Nl7DrZCk4PZCuHZCIlZCfTaZCAjNpWzEZAFP1GAXJaIzJmhuZAWlclCktB2hyZAtUTQZDZD"
 
+def resolve_final_facebook_url(url):
+    try:
+        response = requests.get(url, allow_redirects=True, timeout=10)
+        final_url = response.url
+        return final_url
+    except Exception as e:
+        return None
+
 def extract_post_id(url):
     import re
-    match = re.search(r"posts/(\d+)|photo\?fbid=(\d+)|videos/(\d+)|permalink/(\d+)|story_fbid=(\d+)", url)
-    if match:
-        return next(group for group in match.groups() if group)
-    match = re.search(r"/(\d{5,})/?$", url)
-    if match:
-        return match.group(1)
+    url = resolve_final_facebook_url(url) or url
+
+    patterns = [
+        r"posts/(\d+)",
+        r"photo\?fbid=(\d+)",
+        r"story_fbid=(\d+)",
+        r"videos/(\d+)",
+        r"/permalink/(\d+)",
+        r"/(\d{5,})/?$"
+    ]
+    for pattern in patterns:
+        match = re.search(pattern, url)
+        if match:
+            return match.group(1)
     return None
 
 def fetch_comments(post_id):
@@ -39,15 +56,17 @@ def fetch_comments(post_id):
     return comments
 
 def facebook_post_survey():
-    st.title("📊 Facebook Post Comment Survey (Supports 100K+)")
+    st.title("📊 Facebook Post Comment Survey (Supports all links)")
     post_url = st.text_input("🔗 Facebook post/share/photo link")
 
     if post_url:
-        post_id = extract_post_id(post_url)
+        with st.spinner("🔍 Resolving Facebook link..."):
+            post_id = extract_post_id(post_url)
+
         if post_id:
-            st.success(f"Post ID Detected: {post_id}")
+            st.success(f"✅ Post ID Detected: {post_id}")
             if st.button("📥 Fetch ALL Comments & Convert to CSV"):
-                with st.spinner("Fetching up to 100,000+ comments..."):
+                with st.spinner("📡 Fetching comments (up to 100K+)..."):
                     comments = fetch_comments(post_id)
                 if comments:
                     df = pd.DataFrame(comments)
@@ -57,13 +76,13 @@ def facebook_post_survey():
                     st.download_button("Download CSV", data=df.to_csv(index=False), file_name="comments.csv", mime="text/csv")
                     st.session_state.comments_df = df
                 else:
-                    st.warning("No comments found or access denied.")
+                    st.warning("⚠️ No comments found or access denied.")
         else:
             st.error("❌ Unable to extract valid Post ID from the link.")
 
     if st.session_state.get("comments_df") is not None:
         df = st.session_state.comments_df
-        st.markdown("### 🧠 Simulated Analysis (Next Step: Enable AI Analysis)")
+        st.markdown("### 🧠 Simulated Analysis")
         st.dataframe(df[["from", "message"]].head(10))
 
 facebook_post_survey()
