@@ -1,9 +1,2 @@
 streamlit
-pandas
 requests
-facebook-sdk
-langdetect
-vaderSentiment
-matplotlib
-lxml
-beautifulsoup4
