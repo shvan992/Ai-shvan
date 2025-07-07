@@ -4,7 +4,7 @@ import requests
 import pandas as pd
 from urllib.parse import urlparse, parse_qs
 
-access_token = "EAAQuTsUxpHYBPEu0IRwY8I8zyTZCltrEibmGWqpddYoGMl0sRpJrtn6EHtdTsxo9MStz5cfDPGcE5DZAoP56HkAcQgbqL36wWnpZC58VYmeCBcNNqoot5OCUX2TaprWTZBod6bPyTf3O2giU1zK3bLkburiIgkZCYwE9VGcA2JSLviZCDTWIbIrGUYfcdoePxxEE5y9Fryb6D4CXZAmcN4Nl7DrZCk4PZCuHZCIlZCfTaZCAjNpWzEZAFP1GAXJaIzJmhuZAWlclCktB2hyZAtUTQZDZD"
+access_token = "EAAQuTsUxpHYBPMdwr12q9ASrFkrvHW35rkM9QPGIzHsGT6HB5b0nRMHhygop3m4A71E28JZBA6EBawt9qmDtZBeiOUarhvRMiztVfIn64EonZCDArQT7ulNw6xkt7L3xLOdGMliuTa8onSZAxMnsFNXVrUrYt6EoMSAgooHrtVDgyK7QRIjL0GErZCEvJkVmHsar1Kw57MlmdBs4dJEVTLzjOACQRZBHAxRZCoZBLf9z9QZC93ZCdUSiD8wuJEsZC3WCAfAnskLqUenlvZB9"
 
 def resolve_final_facebook_url(url):
     try:
@@ -59,9 +59,9 @@ def fetch_comments(post_id):
     return {"comments": comments}
 
 def facebook_post_survey():
-    st.title("📊 Facebook Post Comment Survey (Improved Access)")
+    st.title("📊 Facebook Page Post Comment Survey (Live Mode)")
 
-    post_url = st.text_input("🔗 Facebook post/share/photo link")
+    post_url = st.text_input("🔗 Facebook Page post/share/photo link")
 
     if post_url:
         with st.spinner("🔍 Resolving link and detecting Post ID..."):
