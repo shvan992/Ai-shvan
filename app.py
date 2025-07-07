@@ -1,2 +1,1 @@
-# Final fixed version of the dashboard
-print('Dashboard ready')
+# Streamlit entry point with login + language + redirect
